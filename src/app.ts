@@ -2,18 +2,19 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes";
-
+import postRoutes from "./routes/postRoutes";
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Forum API is running 🚀");
+  res.send("Forum API is running ");
 });
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
 
 // DB Connection
 mongoose.connect(process.env.MONGO_URI!)
