@@ -14,7 +14,7 @@ const router = express.Router();
 router.post("/", auth, createComment);
 
 // Get comments by post
-router.get("/:postId", auth, getComments); // ✅ protected
+router.get("/:postId", auth, getComments); 
 
 // Update comment
 router.put("/:id", auth, updateComment);
