@@ -36,16 +36,50 @@ export const login = async (req: Request, res: Response) => {
     return res.status(400).json({ message: "Invalid password" });
   }
 
-  const token = jwt.sign(
-    { userId: user._id, role: user.role },
-    "secret",
-    { expiresIn: "1h" }
-  );
+  const payload = { userId: user._id, role: user.role};
 
-  res.json({ token });
+  //Access Token
+  const accessToken = jwt.sign( payload, "access_secret", {
+    expiresIn: "15m"
+  });
+
+  const refreshToken = jwt.sign( payload, "refresh_secret", {
+    expiresIn: "7d"
+  });
+
+  res.cookie("refreshToken", refreshToken, {
+    httpOnly: true,
+    secure: false,
+    sameSite: "strict"
+  });
+
+  res.json({accessToken});
 };
 
+export const refreshToken = (req: Request, res: Response) => {
+  const token = req.cookies?.refreshToken;
+
+  if (!token) {
+    return res.status(401).json({ message: "No refresh token" });
+  }
+
+  try {
+    const decoded: any = jwt.verify(token, "refresh_secret");
+
+    const newAccessToken = jwt.sign(
+      { userId: decoded.userId, role: decoded.role },
+      "access_secret",
+      { expiresIn: "15m" }
+    );
+
+    res.json({ accessToken: newAccessToken });
+
+  } catch {
+    return res.status(403).json({ message: "Invalid refresh token" });
+  }
+};
 export const logout =(req: any, res: any) =>{
+  res.clearCookie("refreshToken");
   //No real server-side logout in JWT
   res.json({ message:"Logout successful"});
 }
