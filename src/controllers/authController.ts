@@ -44,3 +44,8 @@ export const login = async (req: Request, res: Response) => {
 
   res.json({ token });
 };
+
+export const logout =(req: any, res: any) =>{
+  //No real server-side logout in JWT
+  res.json({ message:"Logout successful"});
+}
