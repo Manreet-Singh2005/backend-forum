@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 
 export const isAdmin = (req: any, res: Response, next: NextFunction) => {
-  if (req.user.role !== "admin") {
+  if (!req.user || req.user.role !== "admin") {
     return res.status(403).json({ message: "Admin access required" });
   }
   next();
