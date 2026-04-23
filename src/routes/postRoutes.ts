@@ -20,6 +20,6 @@ router.put("/:id", auth, updatePost);
 router.delete("/:id", auth, deletePost);
 
 //Like Route
-router.post("/id/like", auth, toggleLike);
+router.post("/:id/like", auth, toggleLike);
 
 export default router;
