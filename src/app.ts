@@ -28,7 +28,4 @@ mongoose.connect(process.env.MONGO_URI!)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
-// Server
-app.listen(1984, () => {
-  console.log("Server running on port 1984");
-});
+export default app;
