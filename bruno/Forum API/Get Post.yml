@@ -1,0 +1,18 @@
+info:
+  name: Get Post
+  type: http
+  seq: 8
+
+http:
+  method: GET
+  url: http://localhost:1984/api/posts
+  headers:
+    - name: Authorization
+      value: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWVhYjJiOTZiNjIyNjg3NjE3OTM1YmIiLCJyb2xlIjoidXNlciIsImlhdCI6MTc3Njk4OTU3NCwiZXhwIjoxNzc2OTkwNDc0fQ.pF1xOEJV7lEjhtbohoeyUTDJBZUmgi53QmybpVNDCvs
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

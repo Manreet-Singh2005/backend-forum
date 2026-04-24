@@ -1,0 +1,18 @@
+info:
+  name: Like Post
+  type: http
+  seq: 10
+
+http:
+  method: POST
+  url: http://localhost:1984/api/posts/69eab58f86df38e00f493e10/like
+  headers:
+    - name: Authorization
+      value: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWVhYjJiOTZiNjIyNjg3NjE3OTM1YmIiLCJyb2xlIjoidXNlciIsImlhdCI6MTc3Njk4OTU3NCwiZXhwIjoxNzc2OTkwNDc0fQ.pF1xOEJV7lEjhtbohoeyUTDJBZUmgi53QmybpVNDCvs
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

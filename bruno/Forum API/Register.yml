@@ -1,0 +1,28 @@
+info:
+  name: Register
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:1984/api/auth/register
+  body:
+    type: json
+    data: |+
+      {
+        "name":"Manreet",
+        "email":"manreet123@gmail.com",
+        "password":"123456"
+      }
+
+
+
+
+
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

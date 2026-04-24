@@ -1,0 +1,18 @@
+info:
+  name: Admin Test
+  type: http
+  seq: 20
+
+http:
+  method: GET
+  url: http://localhost:1984/api/admin/stats
+  headers:
+    - name: Authorization
+      value: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWVhYjgyMTg2ZGYzOGUwMGY0OTNlMTciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzY5OTAzMzQsImV4cCI6MTc3Njk5MTIzNH0.aNNLKWMPE55RnFOKCwTFPdrxAd2eOb_Fxxtlhuvtbxw
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
